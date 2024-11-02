@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/clipboard_89387.ico</file>
+    <file>icons/eye_slash_visible_hide_hidden_show_icon_145987.ico</file>
+    <file>icons/eye_visible_hide_hidden_show_icon_145988.ico</file>
+    <file>icons/ic_vpn_key_128_28771.ico</file>
+    <file>icons/twocirclingarrows1_120592.ico</file>
+  </qresource>
+</RCC>
