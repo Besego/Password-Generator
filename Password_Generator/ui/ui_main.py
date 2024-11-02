@@ -7,19 +7,20 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-        QMetaObject, QObject, QPoint, QRect,
-        QSize, QTime, QUrl, Qt)
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-        QFont, QFontDatabase, QGradient, QIcon,
-        QImage, QKeySequence, QLinearGradient, QPainter,
-        QPalette, QPixmap, QRadialGradient, QTransform)
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QFrame, QGridLayout,
-        QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-        QPushButton, QSizePolicy, QSlider, QSpinBox,
-        QWidget)
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QPushButton, QSizePolicy, QSlider, QSpinBox,
+    QVBoxLayout, QWidget)
 from ui import resources
+
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -69,6 +70,91 @@ class Ui_MainWindow(object):
 "}")
         self.gridLayout = QGridLayout(self.centralwidge)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.layout_length = QHBoxLayout()
+        self.layout_length.setObjectName(u"layout_length")
+        self.slider_length = QSlider(self.centralwidge)
+        self.slider_length.setObjectName(u"slider_length")
+        self.slider_length.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.slider_length.setStyleSheet(u"QSlider::groove:horizontal{\n"
+"    background-color: transparent;\n"
+"    height: 5px;\n"
+"}\n"
+"QSlider::sub-page:horizontal{\n"
+"    background-color: #2196F3;\n"
+"}\n"
+"\n"
+"QSlider::add-page:horizontal{\n"
+"    background-color: gray;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal{\n"
+"    background-color: white;\n"
+"    width: 22px;\n"
+"    border-radius: 10px;\n"
+"    margin-top: -8px;\n"
+"    margin-bottom: -8px;\n"
+"}\n"
+"")
+        self.slider_length.setMaximum(80)
+        self.slider_length.setValue(15)
+        self.slider_length.setOrientation(Qt.Orientation.Horizontal)
+
+        self.layout_length.addWidget(self.slider_length)
+
+        self.spinbox_length = QSpinBox(self.centralwidge)
+        self.spinbox_length.setObjectName(u"spinbox_length")
+        self.spinbox_length.setStyleSheet(u"QSpinBox{\n"
+"    border:2px solid #2196F3;\n"
+"    border-radius: 5px;\n"
+"    background: transparent;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QSpinBox:hover{\n"
+"    border-color: #2196F3;\n"
+"}")
+        self.spinbox_length.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinbox_length.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.spinbox_length.setMaximum(80)
+        self.spinbox_length.setValue(15)
+
+        self.layout_length.addWidget(self.spinbox_length)
+
+
+        self.gridLayout.addLayout(self.layout_length, 3, 0, 1, 1)
+
+        self.layout_character = QHBoxLayout()
+        self.layout_character.setObjectName(u"layout_character")
+        self.btn_lower = QPushButton(self.centralwidge)
+        self.btn_lower.setObjectName(u"btn_lower")
+        self.btn_lower.setCheckable(True)
+        self.btn_lower.setChecked(True)
+
+        self.layout_character.addWidget(self.btn_lower)
+
+        self.btn_upper = QPushButton(self.centralwidge)
+        self.btn_upper.setObjectName(u"btn_upper")
+        self.btn_upper.setCheckable(True)
+        self.btn_upper.setChecked(True)
+
+        self.layout_character.addWidget(self.btn_upper)
+
+        self.btn_digits = QPushButton(self.centralwidge)
+        self.btn_digits.setObjectName(u"btn_digits")
+        self.btn_digits.setCheckable(True)
+        self.btn_digits.setChecked(True)
+
+        self.layout_character.addWidget(self.btn_digits)
+
+        self.btn_symbols = QPushButton(self.centralwidge)
+        self.btn_symbols.setObjectName(u"btn_symbols")
+        self.btn_symbols.setCheckable(True)
+
+        self.layout_character.addWidget(self.btn_symbols)
+
+
+        self.gridLayout.addLayout(self.layout_character, 4, 0, 1, 1)
+
         self.layot_password = QFrame(self.centralwidge)
         self.layot_password.setObjectName(u"layot_password")
         self.layot_password.setStyleSheet(u"")
@@ -164,92 +250,20 @@ class Ui_MainWindow(object):
         self.layout_info.addWidget(self.label_strength)
 
 
-        self.gridLayout.addLayout(self.layout_info, 1, 0, 1, 1)
+        self.gridLayout.addLayout(self.layout_info, 2, 0, 1, 1)
 
-        self.layout_length = QHBoxLayout()
-        self.layout_length.setObjectName(u"layout_length")
-        self.slider_length = QSlider(self.centralwidge)
-        self.slider_length.setObjectName(u"slider_length")
-        self.slider_length.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.slider_length.setStyleSheet(u"QSlider::groove:horizontal{\n"
-"    background-color: transparent;\n"
-"    height: 5px;\n"
-"}\n"
-"QSlider::sub-page:horizontal{\n"
-"    background-color: #2196F3;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal{\n"
-"    background-color: gray;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal{\n"
-"    background-color: white;\n"
-"    width: 22px;\n"
-"    border-radius: 10px;\n"
-"    margin-top: -8px;\n"
-"    margin-bottom: -8px;\n"
-"}\n"
-"")
-        self.slider_length.setMaximum(80)
-        self.slider_length.setValue(15)
-        self.slider_length.setOrientation(Qt.Orientation.Horizontal)
-
-        self.layout_length.addWidget(self.slider_length)
-
-        self.spinbox_length = QSpinBox(self.centralwidge)
-        self.spinbox_length.setObjectName(u"spinbox_length")
-        self.spinbox_length.setStyleSheet(u"QSpinBox{\n"
-"    border:2px solid #2196F3;\n"
-"    border-radius: 5px;\n"
-"    background: transparent;\n"
-"    padding: 2px;\n"
-"}\n"
-"\n"
-"QSpinBox:hover{\n"
-"    border-color: #2196F3;\n"
+        self.layout_btn_generate = QVBoxLayout()
+        self.layout_btn_generate.setObjectName(u"layout_btn_generate")
+        self.btn_generate = QPushButton(self.centralwidge)
+        self.btn_generate.setObjectName(u"btn_generate")
+        self.btn_generate.setStyleSheet(u"QPushButton{\n"
+"    background-color: #1A237E;\n"
 "}")
-        self.spinbox_length.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.spinbox_length.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.spinbox_length.setMaximum(80)
-        self.spinbox_length.setValue(15)
 
-        self.layout_length.addWidget(self.spinbox_length)
+        self.layout_btn_generate.addWidget(self.btn_generate)
 
 
-        self.gridLayout.addLayout(self.layout_length, 2, 0, 1, 1)
-
-        self.layout_character = QHBoxLayout()
-        self.layout_character.setObjectName(u"layout_character")
-        self.btn_lower = QPushButton(self.centralwidge)
-        self.btn_lower.setObjectName(u"btn_lower")
-        self.btn_lower.setCheckable(True)
-        self.btn_lower.setChecked(True)
-
-        self.layout_character.addWidget(self.btn_lower)
-
-        self.btn_upper = QPushButton(self.centralwidge)
-        self.btn_upper.setObjectName(u"btn_upper")
-        self.btn_upper.setCheckable(True)
-        self.btn_upper.setChecked(True)
-
-        self.layout_character.addWidget(self.btn_upper)
-
-        self.btn_digits = QPushButton(self.centralwidge)
-        self.btn_digits.setObjectName(u"btn_digits")
-        self.btn_digits.setCheckable(True)
-        self.btn_digits.setChecked(True)
-
-        self.layout_character.addWidget(self.btn_digits)
-
-        self.btn_symbols = QPushButton(self.centralwidge)
-        self.btn_symbols.setObjectName(u"btn_symbols")
-        self.btn_symbols.setCheckable(True)
-
-        self.layout_character.addWidget(self.btn_symbols)
-
-
-        self.gridLayout.addLayout(self.layout_character, 3, 0, 1, 1)
+        self.gridLayout.addLayout(self.layout_btn_generate, 1, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidge)
 
@@ -260,6 +274,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Password Generator", None))
+        self.btn_lower.setText(QCoreApplication.translate("MainWindow", u"a-z", None))
+        self.btn_upper.setText(QCoreApplication.translate("MainWindow", u"A-Z", None))
+        self.btn_digits.setText(QCoreApplication.translate("MainWindow", u"0-9", None))
+        self.btn_symbols.setText(QCoreApplication.translate("MainWindow", u"#$%", None))
         self.btn_visibility.setText("")
         self.btn_refresh.setText("")
         self.btn_copy.setText("")
@@ -267,9 +285,6 @@ class Ui_MainWindow(object):
         self.btn_copy.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+C", None))
 #endif // QT_CONFIG(shortcut)
         self.label_strength.setText("")
-        self.btn_lower.setText(QCoreApplication.translate("MainWindow", u"a-z", None))
-        self.btn_upper.setText(QCoreApplication.translate("MainWindow", u"A-Z", None))
-        self.btn_digits.setText(QCoreApplication.translate("MainWindow", u"0-9", None))
-        self.btn_symbols.setText(QCoreApplication.translate("MainWindow", u"#$%", None))
+        self.btn_generate.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c", None))
     # retranslateUi
 

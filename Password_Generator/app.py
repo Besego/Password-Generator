@@ -7,7 +7,6 @@ import password
 from ui.ui_main import Ui_MainWindow
 
 
-
 class PasswordGenerator(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -15,11 +14,12 @@ class PasswordGenerator(QMainWindow):
         self.ui.setupUi(self)
 
         self.connect_slider_to_spinbox()
-        self.set_password() 
-        self.password_edit() 
 
-        for btn in button.GENERATE_PASSWORD:
-            getattr(self.ui, btn).clicked.connect(self.set_password)
+        self.password_edit()
+
+        self.ui.btn_generate.clicked.connect(self.set_password)
+        for btn in button.Characters:
+            getattr(self.ui, btn.name).clicked.connect(self.set_strength) 
 
         self.ui.btn_visibility.clicked.connect(self.change_visibility_password)
         self.ui.btn_copy.clicked.connect(self.copy_to_clipboard)
@@ -27,9 +27,9 @@ class PasswordGenerator(QMainWindow):
     def connect_slider_to_spinbox(self) -> None:
         self.ui.slider_length.valueChanged.connect(self.ui.spinbox_length.setValue)
         self.ui.spinbox_length.valueChanged.connect(self.ui.slider_length.setValue)
-        self.ui.spinbox_length.valueChanged.connect(self.set_password)
+        self.ui.spinbox_length.valueChanged.connect(self.set_strength) 
 
-    def password_edit(self) -> None:
+    def password_edit(self) -> None:    
         self.ui.lineEdit.textChanged.connect(self.set_strength)
 
     def get_characters(self) -> str:
@@ -42,9 +42,9 @@ class PasswordGenerator(QMainWindow):
     def set_password(self) -> None:
         try:
             self.ui.lineEdit.setText(
-        password.create_new(
+            password.create_new(
             length=self.ui.slider_length.value(), characters=self.get_characters()
-        )
+            )
         )
         except IndexError:
             self.ui.lineEdit.clear()
@@ -67,8 +67,8 @@ class PasswordGenerator(QMainWindow):
 
         for strength in password.StrenthToEntropy:
             if entropy >= strength.value:
-                self.ui.label_strength.setText(f'Уровень: {strength.name}') 
-
+                self.ui.label_strength.setText(f'Уровень: {strength.name}')
+        return
 
     def change_visibility_password(self) -> None:
         if self.ui.btn_visibility.isChecked():
