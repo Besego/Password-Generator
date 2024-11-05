@@ -39,7 +39,7 @@
 
   <h3>Установка:</h3>
   <ol>
-    <li>Скачайте этот репозиторий или клонируйте его с помощью Git: <a href="https://github.com/Besego/Password-Generator">Ссылка на репозитарий</a></li>
+    <li>Скачайте этот репозиторий или клонируйте его с помощью Git: <a href="https://github.com/Besego/Password-Generator">Ссылка на репозиторий</a></li>
     <li>Перейдите в папку с кодом и запустите программу: app.py</li>
   </ol>
 
