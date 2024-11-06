@@ -26,14 +26,14 @@
 
 # Необходимые команды
 - [Commands](#commands)
-  - `pip install PySide6`
-  -  `git clone https://github.com/Besego/Password-Generator`
+  - `pip install -r requirements.txt` - установка зависимостей.
+  -  `git clone https://github.com/Besego/Password-Generator` - клонирование репозитория.
 
 <h2>Предварительные условия:</h2>
 
 <ul>
     <li>Установите Python.</li>
-    <li>Установите PySide6: Библиотеку для Python</li>
+    <li>Установите зависимости.</li>
 </ul>
   
 
